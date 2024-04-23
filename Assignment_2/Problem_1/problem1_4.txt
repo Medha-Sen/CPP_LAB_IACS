@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+void f(double val, int val2) {
+int x = val;
+int x2 {val};
+char c {val2};
+char c2 {24};
+char c3 {264};
+int x3 {2.0};
+int x4 {};
+int x4[3] {};//redefinition of x4 with a different type
+}
+int main() {
+double d = 5.0;
+int i = 2;
+f(d,i);
+return 0;
+}

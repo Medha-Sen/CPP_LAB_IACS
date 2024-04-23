@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+int main () {
+int a;
+a = -5;
+char a = 'A';// redefinition of a with a different data type
+cout << a << "\n";
+return 0;
+}

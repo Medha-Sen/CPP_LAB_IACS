@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main () {
+int a;
+a = -1;
+{
+char a = 'A';
+}
+cout << arg1 << "\n";//undeclared and uninitialized variable arg1
+return 0;
+}

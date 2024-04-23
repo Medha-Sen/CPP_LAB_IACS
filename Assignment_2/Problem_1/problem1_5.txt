@@ -1,0 +1,21 @@
+#include <iostream>
+void f(char* p) {
+char s[] = "Gorm";
+const char* pc = s;
+pc[3] = 'g';// const variable, not assignable
+pc=p;
+char *const cp = s;
+cp[3] = 'a';
+cp = p;//cannot assign to a constant pointer
+const char *const cpc = s;
+cpc[3] = 'a';// cannot assign to a const pointer to a constant string
+cpc = p;// cannot to a constant pointer
+const int a = 5;
+const int* pa1 = &a;
+int* pa2 = &a;//RHS rvalue is of type const int* whereas pa2 is of type int*
+}
+int main() {
+char a[] = "IACS";
+f(a);
+return 0;
+}

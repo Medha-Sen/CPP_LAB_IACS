@@ -1,0 +1,17 @@
+#include <iostream>
+void f() {
+int var = 1;
+int& r {var};
+int x = r;
+r = 2;
+int& r2;// declaration of a reference variable must be accompanied by an initializer  variable
+++r;
+int* pp = &r;
+extern int& r3;
+int& ei = 99;//cannot have a non const type variable bound to a temporary of type int
+const int& ei2 = 99;
+}
+int main() {
+f();
+return 0;
+}
