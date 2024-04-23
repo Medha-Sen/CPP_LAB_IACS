@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+void f(char,short, double){cout<<"f1"<<endl;}//f1
+void f(int,int,int){cout<<"f2"<<endl;}//f2
+void F(int x, int y){cout<<"F1"<<endl;}//F1
+void F(char x, double y){cout<<"F2"<<endl;}//F2
+void k(double,double){cout<<"k1"<<endl;}//k
+void k(int,int){cout<<"k2"<<endl;}//k
+int main() {
+  f('a',(short)2,(short)3);//first and second arg exact match ,short to double conversion in f1. In f2 , 3 conversions are needed with no exact matches, thus f1 is the more viable function by implicit conversion ranking
+  f('a',3,2);// f2 is the more viable function due to exact match of the second and third arguments and type conversion in the first argument. Incase of f1, two type conversions would be needed despite the first argument being an exact match
+  f('a',3,2.2);//f1 is the more viable function due to exact match of the first and third argument requiring a type conversion the second argument. Incase of f2, two type conversions are needed in the first and third arg.
+  F(2,3); //F1 is more viable due to exact match
+  F('a',5.4); //F2 is more viable due to exact match
+  F('a',5);//More than one best viable function , compiler does not allow
+  F('a','b');//F1 is more viable because char to int conversion is better than char to double conversion
+  F(2,2.5);//F1 is more viable due to single type conversion as opposed to 2 type conversions in F2
+  k(1.2,2.1);// Exact match with k1
+  k(1,2);//Exact match with k2
+  k(2.3,2);//More than one best viable function , compiler does not allow
+  k(long(0),bool(0));//More than one best viable function , compiler does not allow
+return 0;
+}

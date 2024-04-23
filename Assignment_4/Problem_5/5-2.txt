@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+void f(int){cout<<"f(int)"<<endl;}
+void f(int=0){cout<<"f(int=0)"<<endl;}
+int main() {
+  f(5);// Unresolved due to more than one viable function
+  f(0);// Unresolved due to more than one viable function
+  f();// f(int=0) is more viable due tot he presence of a default value in its parameter list
+  return 0;
+}
