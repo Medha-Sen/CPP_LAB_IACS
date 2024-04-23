@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+void f(int val, int& ref){
+val = val * 2;
+ref = ref - 5;
+val = ref + 20;
+cout<<"f(): val = " << val << ", ref = " << ref <<endl;
+}
+int main() {
+int i = 10;
+int j = 10;
+f(i,j);
+cout<<"main(): i = " << i << ", j = " << j <<endl;
+f(i,i);
+cout<<"main(): i = " << i << ", j = " << j <<endl;
+return 0;
+}
+/** The first print statement is printed inside the function f where according to the operations val assumes a value 25 and ref assumes a value 5. When back in the main function, on printing the variables again, since i was passed by value into the function f, it does not retain the value modified by the function whereas since j was passed by a reference, it reflects the changed value. In the second case, the same variable is passed by value and by reference. Thus in returning from the function, it contains the changed value to the passing by reference and thus displays the modified value and not the original value. Now both the variables have a value 5. **/

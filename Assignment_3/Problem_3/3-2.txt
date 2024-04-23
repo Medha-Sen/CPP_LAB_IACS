@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+void f(int i) {
+int x = i*2;
+switch (i) {
+case 3: cout<<"Three"<<endl;
+break;
+case 3.2: cout<<"Slightly exceeds three"<<endl;//case value is always an integer
+
+break;
+
+case 6-4: cout<<"Less than three"<<endl;//case value 2
+
+break;
+
+case 6-3: cout<<"Again three"<<endl;//reptition of case value is not allowed
+
+break;
+
+case x: cout<<"What’s this?"<<endl;//case value is always a constant
+break;
+
+}
+}
+int main() {
+f(3);
+return 0;
+}

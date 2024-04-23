@@ -1,0 +1,22 @@
+#include <iostream>
+void f(const float& a) {}
+void g(float& b) {}
+void h(double d, float r, int i) {
+f(2.0f);//no error as const float& must accept a constant value  
+f(r);//no error. accepts the address of the constant value passed
+f(2*r);//no error. accepts the address of the constant value passed
+f(d);//no error. accepts the address of the constant value passed and implicitly converts it to float
+f(i);//no error. accepts the address of the constant value passed and implicitly converts it to int
+g(2.0f);// no matching function type. expects an  l-value
+g(r);//no error. accepts the l value of the variable passes
+g(2*r);// no matching function type. expects an  l-value. 2*r is not stored as a variable whose address can be accepted by the function.
+g(d);//no matching function call as d is of type double and not float &
+g(i);//no matching function call as i is of type int
+}
+int main() {
+double x = 5.5;
+float y = 6.3f;
+int z = 21;
+h(x, y, z);
+return 0;
+}

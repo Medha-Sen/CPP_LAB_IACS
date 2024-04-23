@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+void f(int n) {
+while (n--) {
+static int flag = 0;
+int x = 0;
+cout << "f(): n = " << n << ", flag = " << flag++ << ", x = " << x++ << endl;
+}
+}
+int main() {
+f(2);
+f(3);
+return 0;
+}
+/** n is first passed to the function having a value 2, which is post-decremented to 1. Thus the first line prints n as 1 and flag as 0 and the variable x as 0. In the next line n is decremented to 0 and thus is printed as 0 but the incremented value of flag is printed. x is declared in the loop to have a starting value 0 and thus is always printed as 0. Due to the loop condition being dissatisfied, the next function call is exceuted in the main function. Now n has a starting value of 3 and its decrementing values are printed in a similar fashion till it reaches 0. However since flag is a static variable, its value starts from the value it assumed in its previous function call statement and thus begins with a value of 2 and increments as per the function. I f flag was not a static variable it would not retain the value of its previous function call and would have a starting value of 0. **/

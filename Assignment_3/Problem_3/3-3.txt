@@ -1,0 +1,12 @@
+#include <iostream>
+int x1 = 7;
+int square(int x) { return x*x;}
+constexpr int x2 = 7;
+constexpr int x3 = x1;//a variable of type constexpr cannot be initialized with a variable
+constexpr int x4 = x2;//not an error because x2 is a literal of type constexpr having value 7
+void f() {
+constexpr int y1 = x1;//a variable of type constexpr cannot be initialized with a variable
+constexpr int y2 = x2;
+constexpr int y3 = square(x1);//a variable of type constexpr cannot be initialized with a variable
+constexpr int y4 = square(x2);//a variable of type constexpr cannot be initialized with a variable
+}

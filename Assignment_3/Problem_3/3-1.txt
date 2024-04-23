@@ -1,0 +1,22 @@
+#include <iostream>
+enum class TL { red, green, blue };
+enum TS { red, yellow, green };
+void f() {
+TL x = TL::green;
+TS y = TS::green;
+int ix;
+int iy;
+x = TL::red;
+x = red;//creates conflict as red is of type TL and TS
+x = 1//missing semicolon
+x = y;// x is of type TL and y is of type TS.Incompatible assignment.
+ix = TL::red;//assigning to type int from type TL
+y = TS::red;
+y = red;
+y = 1;//assigning to type TS from type int
+y = x;// x is of type TL and y is of type TS.Incompatible assignment.
+iy = red;
+}
+int main() {
+  std::cout << "Hello World!\n";
+}
